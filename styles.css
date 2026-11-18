@@ -35,7 +35,7 @@ h2 {
 /* Start here. Add your desktop styles to the rules below. */
 
 body {
-   /* Add a background color for the desktop layout. */
+ background-color: #92a6b5;
 }
 
 .wrapper {
@@ -44,8 +44,7 @@ body {
    padding: 0 0 2rem 0;
    box-shadow: 2px 2px 7px black;
    margin: 1.5rem auto;
-
-   /* Set a maximum width for the wrapper. */
+  max-width: 1000px;
 }
 
 main {
@@ -53,33 +52,81 @@ main {
    padding: 1rem;
    border-radius: 2rem;
    background-color: #cccccc;
-
-   /* Use Flexbox to arrange the three boxes in a row. */
+  display: flex;
+  justify-content: space-around;
 }
 
 .gallery {
    padding: 1rem;
-
-   /* Use Grid to create four columns with space between them. */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
 }
 
 .gallery img {
    border: 2px solid black;
-
-   /* Let each image shrink to fit its gallery column. */
+  max-width: 100%;
 }
 
 
 /* TABLET Media Query
 ------------------------------------*/
+@media (max-width: 799px) {
 
-/* Add the media query for viewport widths below 768px here.
-   Inside it, change the background color and build the two-column layouts. */
+  body {
+    background-color: darkslategray;
+  }
 
+  main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
 
+  .box:last-of-type {
+    grid-column: span 2;
+  }
+
+  .gallery {
+    grid-template-columns: 3fr 1fr;
+  }
+
+}
 /* PHONE Media Query
 ------------------------------------*/
 
-/* Add the media query for viewport widths below 480px here.
-   Inside it, change the background color and stack the boxes and images.
-   Keep this query after the tablet query so the phone rules can override it. */
+@media (max-width: 499px) {
+
+  body {
+    background-color: tan;
+  }
+
+  .wrapper {
+    margin: 0;
+  }
+
+  main {
+    margin: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid black;
+    border-radius: 0;
+  }
+
+  .box {
+    border-radius: 2rem;
+    font-size: 160%;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    background-color: #585858;
+  }
+
+  .gallery img {
+    border-color: white;
+    
+  }
+
+}
